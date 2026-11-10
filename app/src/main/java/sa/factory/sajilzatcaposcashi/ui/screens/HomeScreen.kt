@@ -52,7 +52,7 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text("العتاد الحي: ${state.telemetry?.peripheralName ?: 'ESC/POS Thermal Receipt Printer + Barcode Scanner'}", fontWeight = FontWeight.Bold, color = BrandPrimary, fontSize = 13.sp)
+                    Text("العتاد الحي: ${state.telemetry?.peripheralName ?: \"ESC/POS Thermal Receipt Printer + Barcode Scanner\"}", fontWeight = FontWeight.Bold, color = BrandPrimary, fontSize = 13.sp)
                     Text(state.telemetry?.liveReading ?: "ESC/POS: 200mm/s | Barcode: 39/EAN-13 Scan | Paper: 15% Remaining", fontSize = 11.sp, color = BrandTextSecondary)
                 }
                 Badge(containerColor = BrandPrimary) {

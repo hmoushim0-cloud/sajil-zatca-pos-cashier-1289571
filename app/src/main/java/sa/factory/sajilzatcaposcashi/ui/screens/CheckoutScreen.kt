@@ -90,7 +90,7 @@ fun CheckoutScreen(
                     Text("ضريبة القيمة المضافة (15%):", color = BrandTextSecondary, fontSize = 13.sp)
                     Text("${String.format("%.2f", vat)} ر.س", color = BrandTextPrimary, fontWeight = FontWeight.Bold)
                 }
-                Divider(color = BrandSurface)
+                HorizontalDivider(color = BrandSurface)
                 Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
                     Text("الإجمالي الكلي:", color = BrandTextPrimary, fontWeight = FontWeight.Black, fontSize = 16.sp)
                     Text("${String.format("%.2f", total)} ر.س", color = BrandPrimary, fontWeight = FontWeight.Black, fontSize = 18.sp)

@@ -36,10 +36,10 @@ fun TelemetryScreen(state: SajilZatcaUiState) {
                         Text(state.telemetry?.status ?: "ONLINE", color = Color.Black, fontWeight = FontWeight.Bold, modifier = Modifier.padding(4.dp))
                     }
                 }
-                Text("اسم العتاد: ${state.telemetry?.peripheralName ?: 'ESC/POS Thermal Receipt Printer + Barcode Scanner'}", fontWeight = FontWeight.Bold, color = BrandTextPrimary, fontSize = 14.sp)
+                Text("اسم العتاد: ${state.telemetry?.peripheralName ?: \"ESC/POS Thermal Receipt Printer + Barcode Scanner\"}", fontWeight = FontWeight.Bold, color = BrandTextPrimary, fontSize = 14.sp)
                 Text("جودة الإشارة: ${state.telemetry?.signalDbm ?: -58} dBm  •  البطارية: ${state.telemetry?.batteryPct ?: 98}%", color = BrandSecondary, fontSize = 12.sp)
                 
-                Divider(color = BrandCard)
+                HorizontalDivider(color = BrandCard)
                 Text("حزمة البيانات اللحظية (Raw Telemetry Payload):", color = BrandTextSecondary, fontSize = 11.sp)
                 Surface(
                     shape = RoundedCornerShape(8.dp),
