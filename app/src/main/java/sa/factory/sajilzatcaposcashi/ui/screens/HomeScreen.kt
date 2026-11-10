@@ -1,6 +1,5 @@
 package sa.factory.sajilzatcaposcashi.ui.screens
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -27,6 +26,7 @@ fun HomeScreen(
     onItemClick: (SajilZatcaItem) -> Unit
 ) {
     val categories = listOf("الكل", "إعداد البيكسل", "مزامنة الكتالوج", "تقارير المبيعات", "دعم الطابعات")
+    val defaultPeripheral = "ESC/POS Thermal Receipt Printer + Barcode Scanner"
 
     Column(
         modifier = Modifier
@@ -36,8 +36,17 @@ fun HomeScreen(
     ) {
         // Header
         Column {
-            Text("سقر للربط الذكي — مزامنة فورية بين شوبيفاي وإعلانات فيسبوك", fontSize = 22.sp, fontWeight = FontWeight.Black, color = BrandTextPrimary)
-            Text("ربط سلس مع طابعات ESC/POS وماسحات الباركود لتعزيز مبيعاتك عبر الإنترنت", fontSize = 12.sp, color = BrandTextSecondary)
+            Text(
+                text = "سقر للربط الذكي — مزامنة فورية بين شوبيفاي وإعلانات فيسبوك",
+                fontSize = 21.sp,
+                fontWeight = FontWeight.Black,
+                color = BrandTextPrimary
+            )
+            Text(
+                text = "ربط سلس مع طابعات ESC/POS وماسحات الباركود لتعزيز مبيعاتك عبر الإنترنت",
+                fontSize = 12.sp,
+                color = BrandTextSecondary
+            )
         }
 
         // Hardware Status Capsule
@@ -52,11 +61,25 @@ fun HomeScreen(
                 horizontalArrangement = Arrangement.SpaceBetween
             ) {
                 Column(modifier = Modifier.weight(1f)) {
-                    Text("العتاد الحي: ${state.telemetry?.peripheralName ?: \"ESC/POS Thermal Receipt Printer + Barcode Scanner\"}", fontWeight = FontWeight.Bold, color = BrandPrimary, fontSize = 13.sp)
-                    Text(state.telemetry?.liveReading ?: "ESC/POS: 200mm/s | Barcode: 39/EAN-13 Scan | Paper: 15% Remaining", fontSize = 11.sp, color = BrandTextSecondary)
+                    Text(
+                        text = "العتاد الحي: ${state.telemetry?.peripheralName ?: defaultPeripheral}",
+                        fontWeight = FontWeight.Bold,
+                        color = BrandPrimary,
+                        fontSize = 13.sp
+                    )
+                    Text(
+                        text = state.telemetry?.liveReading ?: "ESC/POS: 200mm/s | Barcode: 39/EAN-13 Scan | Paper: 15% Remaining",
+                        fontSize = 11.sp,
+                        color = BrandTextSecondary
+                    )
                 }
                 Badge(containerColor = BrandPrimary) {
-                    Text(state.telemetry?.status ?: "ONLINE", color = Color.Black, fontWeight = FontWeight.Bold, modifier = Modifier.padding(2.dp))
+                    Text(
+                        text = state.telemetry?.status ?: "ONLINE",
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(2.dp)
+                    )
                 }
             }
         }
